@@ -1,0 +1,27 @@
+server:
+  port: ${PORT:8060}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URI}
+              
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: user-management-service
+        uri: lb://user-management-service
+        predicates:
+        - Path=/user-management/**
+        filters:
+        - RewritePath=/user-management/(?<path>.*), /$\{path}
+
+springdoc:
+  swagger-ui:
+    urls:
+      - name: user-management
+        url: /v3/api-docs/user-management
