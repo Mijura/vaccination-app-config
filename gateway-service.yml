@@ -1,10 +1,10 @@
 server:
-  port: ${PORT:8060}
+  port: ${PORT}
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${DISCOVERY_URI}
+      defaultZone: ${DISCOVERY_URL}
               
 spring:
   cloud:
