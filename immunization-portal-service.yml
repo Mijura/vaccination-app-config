@@ -1,0 +1,10 @@
+server:
+  port: ${IMMUNIZATION_PORTAL_PORT}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${DISCOVERY_URL}
+
+springdoc:
+  packagesToScan: ftn.uns.ac.rs.immunization
