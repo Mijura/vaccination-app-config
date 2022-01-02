@@ -1,5 +1,5 @@
 server:
-  port: ${PORT}
+  port: ${USER_MANAGEMENT_PORT}
 
 eureka:
   client:
