@@ -25,6 +25,12 @@ spring:
         - Path=/immunization-portal/**
         filters:
         - RewritePath=/immunization-portal/(?<path>.*), /$\{path}
+      - id: mail-service
+        uri: lb://mail-service
+        predicates:
+        - Path=/mail/**
+        filters:
+        - RewritePath=/mail/(?<path>.*), /$\{path}
 
 springdoc:
   swagger-ui:
@@ -33,3 +39,5 @@ springdoc:
         url: /v3/api-docs/user-management
       - name: immunization-portal
         url: /v3/api-docs/immunization-portal
+      - name: mail
+        url: /v3/api-docs/mail
